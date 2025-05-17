@@ -1,0 +1,55 @@
+.putBoarder{
+    border-radius: 10px;
+    border: 2px solid #E2E5EE;
+    background: #FFF;
+}
+
+.line-seperator {
+    height: 1px;
+    background-color: #E2E5EE;
+    margin-bottom: 30px;  
+}
+.pay-text p{
+    color: #353535;
+    text-align: center;
+    font-family: CircularStd;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 122%; /* 21.96px */
+}
+.pay-text b {
+    color: #f26522;
+    font-family: CircularStd;
+}
+h3 {
+    text-align: center;
+    margin: 30px 0 10px;
+    color: #353535;
+    font-family: CircularStd;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 106%; /* 25.44px */
+}
+.anotherBoader {
+
+    /* width: 40%; */
+    /* padding: 15px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+}
+.group-pay {
+    /* display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    border-radius: 10px;
+    
+    gap: 33px 47px;
+    width: 400px;
+    padding: 10px; */
+    padding: 20px;
+    /* background: url(<path-to-image>) lightgray -326.4px -207.781px / 245.333% 219.553% no-repeat; */
+}

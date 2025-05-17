@@ -1,0 +1,30 @@
+.dropdown-boarder {
+    background-color: #fff;
+    margin-top: 50px;
+}
+
+.jo {
+    padding: 0 30px;
+}
+
+.dropdown-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 1px solid #E5E5E5;
+}
+.dropdown-head h2 {
+    color: #353535;
+    font-family: CircularStd;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; /* 100% */
+    letter-spacing: -0.2px;
+}
+
+.edit {
+    display: flex;
+    justify-content: flex-end;
+}

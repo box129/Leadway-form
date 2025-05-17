@@ -1,0 +1,137 @@
+.identification-list {
+    margin-top: 43px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 70px;
+    
+}
+
+.identification-list li {
+    list-style-type: none;
+}
+
+
+
+.list-boarder {
+    border: 1.5px solid #3E3E3E80;
+    stroke-width: 1px;
+    border-radius: 15px;
+    width: 140px;
+    height: 150px;
+}
+
+.list-boarder div{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    /* position: relative; */
+    padding: 20px 25px 10px;
+    gap: 40px;
+}
+
+.list-boarder div label {
+    color: #525F7F;
+    font-family: CircularStd;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 106%; /* 19.08px */
+}
+
+.btn-previous {
+    background: #fff;
+    border-radius: 5px;
+    border: 2px solid #FF6606;
+    width: 196px;
+    height: 56px;
+
+    color: #F60;
+    text-align: center;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: CircularStd;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px; /* 111.111% */
+    cursor: pointer;
+}
+
+.btn-side {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+
+    margin: 150px auto;
+    width: 100%;
+    
+}
+
+.btn-side a{
+    color: #353535;
+    font-family: CircularStd;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: none;
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+    text-underline-position: from-font;
+    
+}
+
+.force-space {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 60px;
+}
+
+.make-flex {
+    /* width: 70%; */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 40px;
+
+    margin-top: 50px;
+}
+
+.why {
+    width: 440px;
+}
+
+.why label {
+    color: #5C6B7E;
+    font-family: CircularStd;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 450;
+    line-height: 26px; /* 130% */
+    letter-spacing: 0.15px;
+}
+
+.help {
+    position: relative;
+    left: 19px;
+    top: 30px;
+    color: #8181A5;
+
+    font-family: CircularStd;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 450;
+}
+
+.hidden {
+    display: none;
+}
+
+.some-padding {
+    padding: 0 40px;
+}

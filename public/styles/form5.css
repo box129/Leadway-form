@@ -1,0 +1,16 @@
+.more-guardian {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 15px 70px;
+}
+
+.more-guardian a {
+    color: #353535;
+    font-family: CircularStd;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-decoration-line: none;
+}

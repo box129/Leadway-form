@@ -1,0 +1,173 @@
+/* Container for all content */
+.container {
+    max-width: 1083px;
+    margin: 30px auto;
+    padding: 20px;
+}
+body {
+    background-color: #fff;
+}
+h1 {
+    margin-bottom: 35px;
+
+    color: #363636;
+    text-align: center;
+    font-family: Urbanist;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 123%; /* 59.04px */
+    letter-spacing: -1.44px; 
+}
+
+@font-face {
+    font-family: 'CircularStd';
+    src: url('/fonts/circular-std-medium-500.ttf') format('truetype');
+}
+
+
+
+p {
+    margin-bottom: 25px;
+
+    color: #353535;
+    text-align: center;
+    font-family: CircularStd, sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 450;
+    line-height: normal;
+}
+
+
+h4 {
+    margin: 25px 0 20px;
+
+    color: #353535;
+    text-align: center;
+    font-family: "CircularStd", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 100;
+    line-height: normal;
+}
+
+.first-form {
+    /* width: 75%; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+}
+
+.two-column-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    
+    gap: 33px 47px;
+    width: 850px;
+    padding: 10px;
+    /* border: 10px solid #f2f2f2; */
+}
+
+.form-group {
+    margin: 0 10px 20px;
+}
+
+
+label {
+    color: #353535;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 50px; /* 162.5% */
+    letter-spacing: 0.15px;
+}
+
+.form-control, .pay-control {
+    width: 100%;
+    padding: 15px 20px;
+    /* border: 1px solid #ddd; */
+    /* border-radius: 4px; */
+    font-size: 16px;
+    transition: border-color 0.3s;
+
+    border-radius: 15px;
+    border: 1.5px solid #C6C6C6;;
+    background: #FFF;
+}
+
+.form-control:focus, .pay-control:focus {
+    border-color: #f26522;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(242, 101, 34, 0.2);
+}
+
+
+
+/* Date input styling */
+input {
+    color: #C6C6C6;
+}
+
+input[type="date"] {
+    padding-right: 10px;
+  }
+  
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    color: rgba(0, 0, 0, 0);
+    opacity: 1;
+    display: block;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 24 24"><path fill="%23f26522" d="M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V8h16v13z"/></svg>') no-repeat;
+    width: 20px;
+    height: 20px;
+    border-width: thin;
+    cursor: pointer;
+  }
+  
+  /* Buttons */
+  .btn-primary, .pay-btn {
+    background-color: #f26522;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 12px 25px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    transition: background-color 0.3s;
+    text-align: center;
+    font-weight: 500;
+  }
+  
+  .btn-primary:hover, .pay-btn:hover {
+    background-color: #e25a1b;
+  }
+  
+  /* Button container for centering */
+  .button-container {
+    text-align: center;
+    margin-top: 25px;
+  }
+
+.apex-next {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    margin-top: 45px;
+}
+
+.makePay p{
+    margin-bottom: 25px;
+
+    color: #353535;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 26px; /* 162.5% */
+    letter-spacing: 0.15px;
+}
