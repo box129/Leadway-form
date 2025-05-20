@@ -19,7 +19,7 @@
     <script src="/js/Multi.js" defer></script>
 </head>
 <body>
-    <form action="/step<%= step + 1 %>" id="form1" class="form active">
+    <form action="/step<%= step + 1 %>" id="form1" class="form active" method="post">
         <div class="first-form">
             <div>
                 <h4>Personal Detials</h4>
@@ -27,15 +27,15 @@
             <div class="two-column-forms">
                 <div class="form-group">
                     <label for="pob">Place of Birth</label>
-                    <input type="text" class="form-control" id="pob" name="pob" required>
+                    <input type="text" class="form-control" id="pob" name="pob" value="<%= formData.pob || '' %>" required>
                 </div>
                 <div class="form-group-drop">
                     <label for="religion">Religion</label>
                     <div class="custom-select-wrapper">
                         <select name="religion" id="religion" class="list-control">
-                            <option value="christainity">christainity</option>
-                            <option value="islam">islam</option>
-                            <option value="hinduism">hinduism</option>
+                            <option value="christainity" <%= formData.religion === 'christainity' ? 'selected' : '' %>>christainity</option>
+                            <option value="islam" <%= formData.religion === 'islam' ? 'selected' : '' %>>islam</option>
+                            <option value="hinduism" <%= formData.religion === 'hinduism' ? 'selected' : '' %>>hinduism</option>
                         </select>
                         <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
                             <circle cx="11.5" cy="11.5" r="11.5" fill="#FF6606"/>
@@ -48,9 +48,9 @@
                     <label for="gender">Gender</label>
                     <div class="custom-select-wrapper">
                         <select name="gender" id="gender" class="list-control">
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                            <option value="other">Other</option>
+                            <option value="male" <%= formData.gender === 'male' ? 'selected' : '' %>>Male</option>
+                            <option value="female" <%= formData.gender === 'female' ? 'selected' : '' %>>Female</option>
+                            <option value="other" <%= formData.gender === 'other' ? 'selected' : '' %>>Other</option>
                         </select>
                         <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
                             <circle cx="11.5" cy="11.5" r="11.5" fill="#FF6606"/>
@@ -61,20 +61,20 @@
                 </div>
                 <div class="form-group">
                     <label for="homeAddress">Home Address</label>
-                    <input type="text" class="form-control" id="homeAddress" name="homeAddress" required>
+                    <input type="text" class="form-control" id="homeAddress" name="homeAddress" value="<%= formData.homeAddress || '' %>" required>
                 </div>
                 <div class="form-group">
                     <label for="state">State</label>
-                    <input type="text" class="form-control" id="state" name="state" required>
+                    <input type="text" class="form-control" id="state" name="state" value="<%= formData.state || '' %>" required>
                 </div>
                 <div class="form-group">
                     <label for="city">City</label>
                     <div class="custom-select-wrapper">
                         <select name="city" id="city" class="list-control">
-                            <option value="lagos">Lagos</option>
-                            <option value="abuja">Abuja</option>
-                            <option value="portharcourt">Port Harcourt</option>
-                            <option value="ibadan">Ibadan</option>
+                            <option value="lagos" <%= formData.city === 'lagos' ? 'selected' : '' %>>Lagos</option>
+                            <option value="abuja" <%= formData.city === 'abuja' ? 'selected' : '' %>>Abuja</option>
+                            <option value="portharcourt" <%= formData.city === 'portharcourt' ? 'selected' : '' %>>Port Harcourt</option>
+                            <option value="ibadan" <%= formData.city === 'ibadan' ? 'selected' : '' %>>Ibadan</option>
                         </select>
                         <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
                             <circle cx="11.5" cy="11.5" r="11.5" fill="#FF6606"/>
@@ -110,7 +110,7 @@
         </div>
     </form>
     
-    <form action="/step<%= step + 1 %>" id="form2" class="form">
+    <form action="/step<%= step + 1 %>" id="form2" class="form" method="post">
         <h4>Select Identification Type</h4>
         <ul class="identification-list">
             <li class="list-boarder">
@@ -185,8 +185,8 @@
         </ul>
         <div class="make-flex hidden" id="license-form">
             <div class="why">
-                <label for="license-no">Enter License Number</label>
-                <input type="number" class="form-control" name="license-no" required>
+                <label for="licenseno">Enter License Number</label>
+                <input type="number" class="form-control" name="licenseno" value="<%= formData.licenseno || '' %>" required>
             </div>
             <div class="help">or</div>
             <div class="why load"> 
@@ -210,7 +210,7 @@
         </div>
     </form>
     
-    <form action="/step<%= step + 1 %>" id="form3" class="form">
+    <form action="/step<%= step + 1 %>" id="form3" class="form" method="post">
         <div class="first-form" id="beneficiaries-container">
             <div>
                 <h4>Beneficiary Details</h4>
@@ -218,23 +218,23 @@
             <div class="two-column-forms beneficiary">
                 <div class="form-group">
                     <label for="fname">First Name</label>
-                    <input type="text" class="form-control" id="fname" name="fname" required>
+                    <input type="text" class="form-control" id="fname" name="fname" value="<%= formData.fname || '' %>" required>
                 </div>
                 <div class="form-group">
                     <label for="lname">Last Name</label>
-                    <input type="text" class="form-control" id="lname" name="lname" required>
+                    <input type="text" class="form-control" id="lname" name="lname" value="<%= formData.lname || '' %>" required>
                 </div>
                 <div class="form-group">
                     <label for="dob">Date of Birth</label>
-                    <input type="date" class="form-control" id="dob" name="dob" required>
+                    <input type="date" class="form-control" id="dob" name="dob" value="<%= formData.dob || '' %>" required>
                 </div>
                 <div class="form-group">
                     <label for="gender">Gender</label>
                     <div class="custom-select-wrapper">
                         <select name="gender" id="gender" class="list-control">
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                            <option value="other">Other</option>
+                            <option value="male" <%= formData.gender === 'male' ? 'selected' : '' %>>Male</option>
+                            <option value="female" <%= formData.gender === 'female' ? 'selected' : '' %>>Female</option>
+                            <option value="other" <%= formData.gender === 'other' ? 'selected' : '' %>>Other</option>
                         </select>
                         <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
                             <circle cx="11.5" cy="11.5" r="11.5" fill="#FF6606"/>
@@ -258,7 +258,7 @@
         </div>
     </form>
     
-    <form action="/step<%= step + 1 %>" id="form4" class="form">
+    <form action="/step<%= step + 1 %>" id="form4" class="form" method="post">
         <div class="first-form" id = "executive-container">
             <h4>Executors Details</h4>
             
@@ -274,28 +274,28 @@
             <div class="two-column-forms executive">
                 <div class="form-group">
                     <label for="fname">First Name</label>
-                    <input type="text" class="form-control" id="fname" name="fname" required>
+                    <input type="text" class="form-control" id="fname" name="fname" value="<%= formData.fname || '' %>" required>
                 </div>
                 <div class="form-group">
                     <label for="lname">Last Name</label>
-                    <input type="text" class="form-control" id="lname" name="lname" required>
+                    <input type="text" class="form-control" id="lname" name="lname" value="<%= formData.lname || '' %>" required>
                 </div>
                 <div class="form-group">
                     <label for="phone">Phone Number</label>
-                    <input type="tel" class="form-control" id="phone" name="phone" required>
+                    <input type="tel" class="form-control" id="phone" name="phone" value="<%= formData.phone || '' %>" required>
                 </div>
                 <div class="form-group">
                     <label for="address">Address</label>
-                    <input type="address" class="form-control" id="address" name="address" required>
+                    <input type="address" class="form-control" id="address" name="address" value="<%= formData.address || '' %>" required>
                 </div>
                 <div class="form-group">
                     <label for="city">City</label>
                     <div class="custom-select-wrapper">
                         <select name="city" id="city" class="list-control">
-                            <option value="lagos">Lagos</option>
-                            <option value="abuja">Abuja</option>
-                            <option value="portharcourt">Port Harcourt</option>
-                            <option value="ibadan">Ibadan</option>
+                            <option value="lagos" <%= formData.city === 'lagos' ? 'selected' : '' %>>Lagos</option>
+                            <option value="abuja" <%= formData.city === 'abuja' ? 'selected' : '' %>>Abuja</option>
+                            <option value="portharcourt" <%= formData.city === 'portharcourt' ? 'selected' : '' %>>Port Harcourt</option>
+                            <option value="ibadan" <%= formData.city === 'ibadan' ? 'selected' : '' %>>Ibadan</option>
                         </select>
                         <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
                             <circle cx="11.5" cy="11.5" r="11.5" fill="#FF6606"/>
@@ -307,10 +307,10 @@
                     <label for="state">State</label>
                     <div class="custom-select-wrapper">
                         <select name="state" id="state" class="list-control">
-                            <option value="osun">Osun</option>
-                            <option value="ondo">Ondo</option>
-                            <option value="ekiti">Ekiti</option>
-                            <option value="lagos">Lagos</option>
+                            <option value="osun" <%= formData.state === 'osun' ? 'selected' : '' %>>Osun</option>
+                            <option value="ondo" <%= formData.state === 'ondo' ? 'selected' : '' %>>Ondo</option>
+                            <option value="ekiti" <%= formData.state === 'ekiti' ? 'selected' : '' %>>Ekiti</option>
+                            <option value="lagos" <%= formData.state === 'lagos' ? 'selected' : '' %>>Lagos</option>
                         </select>
                         <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
                             <circle cx="11.5" cy="11.5" r="11.5" fill="#FF6606"/>
@@ -337,7 +337,7 @@
     </form>
 
 
-    <form action="/step<%= step + 1 %>" id="form5" class="form">
+    <form action="/step<%= step + 1 %>" id="form5" class="form" method="post">
         <div class="first-form" id = "guardian-container">
             <h4>Guardian Details</h4>
             
@@ -353,32 +353,32 @@
             <div class="two-column-forms guardian">
                 <div class="form-group">
                     <label for="fname">First Name</label>
-                    <input type="text" class="form-control" id="fname" name="fname" required>
+                    <input type="text" class="form-control" id="fname" name="fname" value="<%= formData.fname || '' %>" required>
                 </div>
                 <div class="form-group">
                     <label for="lname">Last Name</label>
-                    <input type="text" class="form-control" id="lname" name="lname" required>
+                    <input type="text" class="form-control" id="lname" name="lname" value="<%= formData.lname || '' %>" required>
                 </div>
                 <div class="form-group">
                     <label for="phone">Phone Number</label>
-                    <input type="tel" class="form-control" id="phone" name="phone" required>
+                    <input type="tel" class="form-control" id="phone" name="phone" value="<%= formData.phone || '' %>" required>
                 </div>
                 <div class="form-group">
                     <label for="Relationship">Relationship</label>
-                    <input type="text" class="form-control" id="Relationship" name="relationship" required>
+                    <input type="text" class="form-control" id="Relationship" name="relationship" value="<%= formData.relationship || '' %>" required>
                 </div>
                 <div class="form-group">
                     <label for="address">Address</label>
-                    <input type="address" class="form-control" id="address" name="address" required>
+                    <input type="address" class="form-control" id="address" name="address" value="<%= formData.address || '' %>" required>
                 </div>
                 <div class="form-group">
                     <label for="city">City</label>
                     <div class="custom-select-wrapper">
                         <select name="city" id="city" class="list-control">
-                            <option value="lagos">Lagos</option>
-                            <option value="abuja">Abuja</option>
-                            <option value="portharcourt">Port Harcourt</option>
-                            <option value="ibadan">Ibadan</option>
+                            <option value="lagos" <%= formData.city === 'lagos' ? 'selected' : '' %>>Lagos</option>
+                            <option value="abuja" <%= formData.city === 'abuja' ? 'selected' : '' %>>Abuja</option>
+                            <option value="portharcourt" <%= formData.city === 'portharcourt' ? 'selected' : '' %>>Port Harcourt</option>
+                            <option value="ibadan" <%= formData.city === 'ibadan' ? 'selected' : '' %>>Ibadan</option>
                         </select>
                         <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
                             <circle cx="11.5" cy="11.5" r="11.5" fill="#FF6606"/>
@@ -390,10 +390,10 @@
                     <label for="state">State</label>
                     <div class="custom-select-wrapper">
                         <select name="state" id="state" class="list-control">
-                            <option value="osun">Osun</option>
-                            <option value="ondo">Ondo</option>
-                            <option value="ekiti">Ekiti</option>
-                            <option value="lagos">Lagos</option>
+                            <option value="osun" <%= formData.state === 'osun' ? 'selected' : '' %>>Osun</option>
+                            <option value="ondo" <%= formData.state === 'ondo' ? 'selected' : '' %>>Ondo</option>
+                            <option value="ekiti" <%= formData.state === 'ekiti' ? 'selected' : '' %>>Ekiti</option>
+                            <option value="lagos" <%= formData.state === 'lagos' ? 'selected' : '' %>>Lagos</option>
                         </select>
                         <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
                             <circle cx="11.5" cy="11.5" r="11.5" fill="#FF6606"/>
@@ -420,7 +420,7 @@
     </form>
 
     
-    <form action="/step<%= step + 1 %>" id="form6" class="form">
+    <form action="/step<%= step + 1 %>" id="form6" class="form" method="post">
         <div class="first-form">
             <div>
                 <h4>RSA Assets</h4>
@@ -437,15 +437,15 @@
             <div class="two-column-forms">
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" class="form-control" id="name" name="name" required>
+                    <input type="text" class="form-control" id="name" name="name" value="<%= formData.name || '' %>" required>
                 </div>
                 <div class="form-group">
                     <label for="pin">PIN Number</label>
-                    <input type="text" class="form-control" id="pin" name="pin" required>
+                    <input type="text" class="form-control" id="pin" name="pin" value="<%= formData.pin || '' %>" required>
                 </div>
                 <div class="form-group">
                     <label for="pfa">PFA</label>
-                    <input type="text" class="form-control" id="pfa" name="pfa" required>
+                    <input type="text" class="form-control" id="pfa" name="pfa" value="<%= formData.pfa || '' %>" required>
                 </div>
             </div>
             <div class="btn-sided">
@@ -460,7 +460,7 @@
         </div>
     </form>
     
-    <form action="/step<%= step + 1 %>" id="form7" class="form">
+    <form action="/step<%= step + 1 %>" id="form7" class="form" method="post">
         <div class="first-form">
             <div>
                 <h4>Beneficiary Asset</h4>
@@ -478,9 +478,9 @@
                     <label for="beneficiary">Beneficiary</label>
                     <div class="custom-select-wrapper">
                         <select name="beneficiary" id="beneficiary" class="list-control">
-                            <option value="beneficiary1">Beneficiary 1</option>
-                            <option value="beneficiary2">Beneficiary 2</option>
-                            <option value="beneficiary3">Beneficiary 3</option>
+                            <option value="beneficiary1" <%= formData.beneficiary === 'beneficiary1' ? 'selected' : '' %>>Beneficiary 1</option>
+                            <option value="beneficiary2" <%= formData.beneficiary === 'beneficiary2' ? 'selected' : '' %>>Beneficiary 2</option>
+                            <option value="beneficiary3" <%= formData.beneficiary === 'beneficiary3' ? 'selected' : '' %>>Beneficiary 3</option>
                         </select>
                         <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
                             <circle cx="11.5" cy="11.5" r="11.5" fill="#FF6606"/>
@@ -490,11 +490,11 @@
                 </div>
                 <div class="form-group">
                     <label for="asset">Asset</label>
-                    <input type="number" class="form-control" id="asset" name="asset" required>
+                    <input type="number" class="form-control" id="asset" name="asset" value="<%= formData.asset || '' %>" required>
                 </div>
                 <div class="form-group">
                     <label for="percentage">Percentage(%)</label>
-                    <input type="number" class="form-control" id="percentage" name="percentage" required>
+                    <input type="number" class="form-control" id="percentage" name="percentage" value="<%= formData.percentage || '' %>" required>
                 </div>
             </div>
         </div>
@@ -532,15 +532,15 @@
                     <div class="two-column-forms">
                         <div class="form-group">
                             <label for="pob">Place of Birth</label>
-                            <input type="text" class="form-control" id="pob" name="pob" required>
+                            <input type="text" class="form-control" id="pob" name="pob" value="<%=  %>" required>
                         </div>
                         <div class="form-group-drop">
                             <label for="religion">Religion</label>
                             <div class="custom-select-wrapper">
                                 <select name="religion" id="religion" class="list-control">
-                                    <option value="christainity">christainity</option>
-                                    <option value="islam">islam</option>
-                                    <option value="hinduism">hinduism</option>
+                                    <option value="christainity" <%= formData.religion === 'christainity' ? 'selected' : '' %>>christainity</option>
+                                    <option value="islam" <%= formData.religion === 'islam' ? 'selected' : '' %>>islam</option>
+                                    <option value="hinduism" <%= formData.religion === 'hinduism' ? 'selected' : '' %>>hinduism</option>
                                 </select>
                                 <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
                                     <circle cx="11.5" cy="11.5" r="11.5" fill="#FF6606"/>
@@ -553,9 +553,9 @@
                             <label for="gender">Gender</label>
                             <div class="custom-select-wrapper">
                                 <select name="gender" id="gender" class="list-control">
-                                    <option value="male">Male</option>
-                                    <option value="female">Female</option>
-                                    <option value="other">Other</option>
+                                    <option value="male" <%= formData.gender === 'male' ? 'selected' : '' %>>Male</option>
+                                    <option value="female" <%= formData.gender === 'female' ? 'selected' : '' %>>Female</option>
+                                    <option value="other" <%= formData.gender === 'other' ? 'selected' : '' %>>Other</option>
                                 </select>
                                 <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
                                     <circle cx="11.5" cy="11.5" r="11.5" fill="#FF6606"/>
@@ -576,10 +576,10 @@
                             <label for="city">City</label>
                             <div class="custom-select-wrapper">
                                 <select name="city" id="city" class="list-control">
-                                    <option value="lagos">Lagos</option>
-                                    <option value="abuja">Abuja</option>
-                                    <option value="portharcourt">Port Harcourt</option>
-                                    <option value="ibadan">Ibadan</option>
+                                    <option value="lagos" <%= formData.city === 'lagos' ? 'selected' : '' %>>Lagos</option>
+                                    <option value="abuja" <%= formData.city === 'abuja' ? 'selected' : '' %>>Abuja</option>
+                                    <option value="portharcourt" <%= formData.city === 'portharcourt' ? 'selected' : '' %>>Port Harcourt</option>
+                                    <option value="ibadan" <%= formData.city === 'ibadan' ? 'selected' : '' %>>Ibadan</option>
                                 </select>
                                 <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
                                     <circle cx="11.5" cy="11.5" r="11.5" fill="#FF6606"/>
@@ -661,15 +661,15 @@
                 <div class="two-column-forms">
                     <div class="form-group">
                         <label for="fname">First Name</label>
-                        <input type="text" class="form-control" id="fname" name="fname" required>
+                        <input type="text" class="form-control" id="fname" name="fname" value="<%= formData.fname %>" required>
                     </div>
                     <div class="form-group">
                         <label for="lname">Last Name</label>
-                        <input type="text" class="form-control" id="lname" name="lname" required>
+                        <input type="text" class="form-control" id="lname" name="lname" value="<%= formData.lname %>" required>
                     </div>
                     <div class="form-group">
                         <label for="dob">Date of Birth</label>
-                        <input type="date" class="form-control" id="dob" name="dob" required>
+                        <input type="date" class="form-control" id="dob" name="dob" value="<%= formData.dob %>" required>
                     </div>
                     <div class="form-group">
                         <label for="gender">Gender</label>
@@ -707,19 +707,19 @@
                 <div class="two-column-forms">
                     <div class="form-group">
                         <label for="fname">First Name</label>
-                        <input type="text" class="form-control" id="fname" name="fname" required>
+                        <input type="text" class="form-control" id="fname" name="fname" value="<%= formData.fname %>" required>
                     </div>
                     <div class="form-group">
                         <label for="lname">Last Name</label>
-                        <input type="text" class="form-control" id="lname" name="lname" required>
+                        <input type="text" class="form-control" id="lname" name="lname" value="<%= formData.lname %>" required>
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone Number</label>
-                        <input type="tel" class="form-control" id="phone" name="phone" required>
+                        <input type="tel" class="form-control" id="phone" name="phone" value="<%= formData.phone %>" required>
                     </div>
                     <div class="form-group">
                         <label for="address">Address</label>
-                        <input type="address" class="form-control" id="address" name="address" required>
+                        <input type="address" class="form-control" id="address" name="address" value="<%= formData.address %>" required>
                     </div>
                     <div class="form-group">
                         <label for="city">City</label>
@@ -774,23 +774,23 @@
                 <div class="two-column-forms">
                     <div class="form-group">
                         <label for="fname">First Name</label>
-                        <input type="text" class="form-control" id="fname" name="fname" required>
+                        <input type="text" class="form-control" id="fname" name="fname" value="<%= formData.fname %>" required>
                     </div>
                     <div class="form-group">
                         <label for="lname">Last Name</label>
-                        <input type="text" class="form-control" id="lname" name="lname" required>
+                        <input type="text" class="form-control" id="lname" name="lname" value="<%= formData.lname %>" required>
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone Number</label>
-                        <input type="tel" class="form-control" id="phone" name="phone" required>
+                        <input type="tel" class="form-control" id="phone" name="phone" value="<%= formData.phone %>" required>
                     </div>
                     <div class="form-group">
                         <label for="Relationship">Relationship</label>
-                        <input type="text" class="form-control" id="Relationship" name="relationship" required>
+                        <input type="text" class="form-control" id="Relationship" name="relationship" value="<%= formData.relationship %>" required>
                     </div>
                     <div class="form-group">
                         <label for="address">Address</label>
-                        <input type="address" class="form-control" id="address" name="address" required>
+                        <input type="address" class="form-control" id="address" name="address" value="<%= formData.address %>" required>
                     </div>
                     <div class="form-group">
                         <label for="city">City</label>
@@ -845,15 +845,15 @@
                 <div class="two-column-forms">
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" name="name" required>
+                        <input type="text" class="form-control" id="name" name="name" value="<%= formData.name %>" required>
                     </div>
                     <div class="form-group">
                         <label for="pin">PIN Number</label>
-                        <input type="text" class="form-control" id="pin" name="pin" required>
+                        <input type="text" class="form-control" id="pin" name="pin" value="<%= formData.pin %>" required>
                     </div>
                     <div class="form-group">
                         <label for="pfa">PFA</label>
-                        <input type="text" class="form-control" id="pfa" name="pfa" required>
+                        <input type="text" class="form-control" id="pfa" name="pfa" value="<%= formData.pfa %>" required>
                     </div>
                 </div>
                 <div>
@@ -891,11 +891,11 @@
                     </div>
                     <div class="form-group">
                         <label for="asset">Asset</label>
-                        <input type="number" class="form-control" id="asset" name="asset" required>
+                        <input type="number" class="form-control" id="asset" name="asset" value="<%= formData.asset %>" required>
                     </div>
                     <div class="form-group">
                         <label for="percentage">Percentage(%)</label>
-                        <input type="number" class="form-control" id="percentage" name="percentage" required>
+                        <input type="number" class="form-control" id="percentage" name="percentage" value="<%= formData.percentage %>" required>
                     </div>
                 </div>
                 <div>
