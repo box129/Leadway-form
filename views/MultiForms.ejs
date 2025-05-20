@@ -6,8 +6,10 @@
 <div class="progress-fix">
     <div>
         <div class="steps">
-            <% for(let i = 1; i<= 7; i++) { %>
-                <div class="extra"><div class ="step <% i === 1 ? 'active' : '' %>"><%= i %></div></div>
+            <% for(let i = 1; i <= 7; i++) { %>
+                <div class="extra">
+                    <div class="step <%= i === 1 ? 'active' : '' %>"><%= i %></div>
+                </div>
             <% } %>
         </div>
     </div>
@@ -18,28 +20,35 @@
     </div>
 </div>
 
-<iframe src="/other-forms" width="100%" height="600px" style="border: none;"></iframe>
-
+<iframe src="/other-forms" id="forms-iframe" width="100%" height="600px" style="border: none;"></iframe>
 
 <script>
     const steps = document.querySelectorAll(".step");
     const progressBar = document.querySelector(".progress-bar");
+    const iframe = document.getElementById("forms-iframe");
+    
+    // Set initial progress
+    const initialProgress = (1 / steps.length) * 100;
+    progressBar.style.width = initialProgress + "%";
 
     window.addEventListener("message", function (event) {
         if (event.data?.type === "STEP_CHANGE") {
             const stepIndex = event.data.step;
-
-            // Highlight steps
+            
+            // Highlight steps (note: steps are 1-indexed in UI but 0-indexed in logic)
             steps.forEach((step, index) => {
-                step.classList.toggle("active", index === stepIndex);
-                step.classList.toggle("pre-active", index < stepIndex);
+                // Use index+1 to match the 1-based step numbering in your UI
+                step.classList.toggle("active", index === stepIndex - 1);
+                step.classList.toggle("pre-active", index < stepIndex - 1);
             });
 
             // Update progress
-            const progressPercent = ((stepIndex + 1) / steps.length) * 100;
+            const progressPercent = (stepIndex / steps.length) * 100;
             progressBar.style.width = progressPercent + "%";
-            if (stepIndex === 7) {
-                progressBar.style.width = 100 + "%";
+            
+            // Update iframe source if needed (optional)
+            if (iframe.src.indexOf('/step') === -1) {
+                iframe.src = `/step${stepIndex}`;
             }
         }
     });

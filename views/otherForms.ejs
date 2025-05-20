@@ -19,7 +19,7 @@
     <script src="/js/Multi.js" defer></script>
 </head>
 <body>
-    <form action="/step2" id="form1" class="form <%= step === 1 ? 'active' : '' %>" method="post">
+    <form action="/step<%= step + 1 %>" id="form<%= step %>" class="form <%= step === 1 ? 'active' : '' %>" method="post">
         <div class="first-form">
             <div>
                 <h4>Personal Detials</h4>
@@ -110,7 +110,7 @@
         </div>
     </form>
     
-    <form action="/step3" id="form2" class="form <%= step === 2 ? 'active' : '' %>" method="post">
+    <form action="/step<%= step + 1 %>" id="form<%= step %>" class="form <%= step === 2 ? 'active' : '' %>" method="post">
         <h4>Select Identification Type</h4>
         <ul class="identification-list">
             <li class="list-boarder">
@@ -210,7 +210,7 @@
         </div>
     </form>
     
-    <form action="/step4" id="form3" class="form <%= step === 3 ? 'active' : '' %>" method="post">
+    <form action="/step<%= step + 1 %>" id="form<%= step %>" class="form <%= step === 3 ? 'active' : '' %>" method="post">
         <div class="first-form" id="beneficiaries-container">
             <div>
                 <h4>Beneficiary Details</h4>
@@ -258,7 +258,7 @@
         </div>
     </form>
     
-    <form action="/step5" id="form4" class="form <%= step === 4 ? 'active' : '' %>" method="post">
+    <form action="/step<%= step + 1 %>" id="form<%= step %>" class="form <%= step === 4 ? 'active' : '' %>" method="post">
         <div class="first-form" id = "executive-container">
             <h4>Executors Details</h4>
             
@@ -337,7 +337,7 @@
     </form>
 
 
-    <form action="/step6" id="form5" class="form <%= step === 5 ? 'active' : '' %>" method="post">
+    <form action="/step<%= step + 1 %>" id="form<%= step %>" class="form <%= step === 5 ? 'active' : '' %>" method="post">
         <div class="first-form" id = "guardian-container">
             <h4>Guardian Details</h4>
             
@@ -420,7 +420,7 @@
     </form>
 
     
-    <form action="/step7" id="form6" class="form <%= step === 6 ? 'active' : '' %>" method="post">
+    <form action="/step<%= step + 1 %>" id="form<%= step %>" class="form <%= step === 6 ? 'active' : '' %>" method="post">
         <div class="first-form">
             <div>
                 <h4>RSA Assets</h4>
@@ -460,7 +460,7 @@
         </div>
     </form>
     
-    <form action="/step8" id="form7" class="form <%= step === 7 ? 'active' : '' %>" method="post">
+    <form action="/step<%= step + 1 %>" id="form<%= step %>" class="form <%= step === 7 ? 'active' : '' %>" method="post">
         <div class="first-form">
             <div>
                 <h4>Beneficiary Asset</h4>
@@ -921,57 +921,63 @@
             window.parent.postMessage({ type: "STEP_CHANGE", step: stepIndex }, "*");
         }
 
-        /* To upload the file */
-        const input = document.getElementById('file');
-        const fileName = document.getElementById('file-name');
-        const uploadBtn = document.getElementById('upload-btn');
-
-        uploadBtn.addEventListener('click', () => input.click());
-
-        input.addEventListener('change', () => {
-        fileName.textContent = input.files[0]?.name || 'No file chosen';
-        });
-    
-        let currentStep = <%= step || 1 %>;
-        const forms = document.querySelectorAll(".form");
-    
-        function goToNextStep() {
-            if (currentStep < forms.length - 1) {
-                forms[currentStep].classList.remove("active");
-                currentStep++;
-                forms[currentStep].classList.add("active");
-                // forms[currentStep - 1].classList.add("pre-active");
-    
-                notifyParentOfStep(currentStep);
-            }
-        }
-
-        function goToPrevious() {
-            if (currentStep < forms.length) {
-                forms[currentStep].classList.remove("active");
-                currentStep--;
-                forms[currentStep].classList.add("active");
-                // forms[currentStep - 1].classList.add("pre-active");
-    
-                notifyParentOfStep(currentStep);
-            }
-        }
-    
         document.addEventListener("DOMContentLoaded", () => {
+            // Get the current step from the server-side template
+            let currentStep = <%= step || 1 %>;
+            const forms = document.querySelectorAll(".form");
+            
+            // Initialize - notify parent of current step
             notifyParentOfStep(currentStep);
-    
-            document.getElementById("next1")?.addEventListener("click", goToNextStep);
-            document.getElementById("next2")?.addEventListener("click", goToNextStep);
-            document.getElementById("next3")?.addEventListener("click", goToNextStep);
-            document.getElementById("next4")?.addEventListener("click", goToNextStep);
-            document.getElementById("next5")?.addEventListener("click", goToNextStep);
-            document.getElementById("next6")?.addEventListener("click", goToNextStep);
-            document.getElementById("next7")?.addEventListener("click", goToNextStep);
+            
+            // Only show the active form
+            forms.forEach((form, index) => {
+                if (index + 1 === currentStep) {
+                    form.classList.add("active");
+                } else {
+                    form.classList.remove("active");
+                }
+            });
+
+            function goToNextStep() {
+                if (currentStep < forms.length) {
+                    forms[currentStep - 1].classList.remove("active");
+                    currentStep++;
+                    forms[currentStep - 1].classList.add("active");
+                    notifyParentOfStep(currentStep);
+                }
+            }
+
+            function goToPrevious() {
+                if (currentStep > 1) {
+                    forms[currentStep - 1].classList.remove("active");
+                    currentStep--;
+                    forms[currentStep - 1].classList.add("active");
+                    notifyParentOfStep(currentStep);
+                }
+            }
+
+            // Setup event listeners
+            document.querySelectorAll("[id^='next']").forEach(button => {
+                button?.addEventListener("click", function(e) {
+                    // Only prevent default if it's not a submit button in a form
+                    if (!button.type || button.type !== "submit") {
+                        e.preventDefault();
+                    }
+                    goToNextStep();
+                });
+            });
 
             document.querySelectorAll(".previous0").forEach(button => { 
-                button?.addEventListener("click", goToPrevious);
+                button?.addEventListener("click", function(e) {
+                    e.preventDefault();
+                    goToPrevious();
+                });
             });
-       
+
+            // Rest of your event handlers
+            // ...
+
+
             let drivers = document.getElementById("driver");
             let License = document.getElementById("license");
             let liForm = document.getElementById("license-form");
@@ -1074,11 +1080,15 @@
                     });
                 });
             });
-        });
+
 
         // document.addEventListener("DOMContentLoaded", function() {
             
         // });
+        });    
+            
+       
+            
 
 
     </script>

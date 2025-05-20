@@ -95,8 +95,14 @@ app.get('/other-forms', (req, res) => {
   }); // This will render views/otherForms.ejs
 });
 
+// Dynamic step handler
 app.get('/step:stepNumber', (req, res) => {
-  const step = parseInt(req.params.stepNumber); // get the step from the URL
+  const step = parseInt(req.params.stepNumber) || 1;
+  
+  // Validate step range
+  if (step < 1 || step > 7) {
+    return res.redirect('/step1');
+  }
 
   res.render('otherForms', {
     step,
@@ -107,102 +113,20 @@ app.get('/step:stepNumber', (req, res) => {
 });
 
 app.post('/step:stepNumber', (req, res) => {
-  const step = parseInt(req.params.stepNumber);
-  storeFormData(req, `step${step}`);
-  res.redirect(`/step${step + 1}`);
+  const currentStep = parseInt(req.params.stepNumber);
+  storeFormData(req, `step${currentStep}`);
+  
+  // If it's the final step, redirect to summary
+  if (currentStep >= 6) {
+    res.redirect('/step7');
+  } else {
+    res.redirect(`/step${currentStep + 1}`);
+  }
 });
-
-
-// app.get('/step1', (req, res) => {
-//   res.render('otherForms', { 
-//     step: 1, 
-//     data: req.session.data || {},
-//     formData: req.session.forms.step1 || {}
-//   });
-// });
-
-// app.post('/step1', (req, res) => {
-//   storeFormData(req, 'step1');
-//   res.redirect('/step2');
-// });
-
-// app.get('/step2', (req, res) => {
-//   res.render('otherForms', { 
-//     step: 2,
-//     data: req.session.data || {},
-//     formData: req.session.forms.step2 || {}
-//   });
-// });
-
-// app.post('/step2', (req, res) => {
-//   storeFormData(req, 'step2');
-//   res.redirect('/step3');
-// });
-
-// app.get('/step3', (req, res) => {
-//   res.render('otherForms', { 
-//     step: 3,
-//     data: req.session.data || {},
-//     formData: req.session.forms.step3 || {}
-//   });
-// });
-
-// app.post('/step3', (req, res) => {
-//   storeFormData(req, 'step3');
-//   res.redirect('/step4');
-// });
-
-// app.get('/step4', (req, res) => {
-//   res.render('otherForms', { 
-//     step: 4,
-//     data: req.session.data || {},
-//     formData: req.session.forms.step4 || {}
-//   });
-// });
-
-// app.post('/step4', (req, res) => {
-//   storeFormData(req, 'step4');
-//   res.redirect('/step5');
-
-// });
-
-// app.get('/step5', (req, res) => {
-//   res.render('otherForms', { 
-//     step: 5,
-//     data: req.session.data || {},
-//     formData: req.session.forms.step5 || {}
-//   });
-// });
-
-// app.post('/step5', (req, res) => {
-//   storeFormData(req, 'step5');
-//   res.redirect('/step6');
-// });
-
-// app.get('/step6', (req, res) => {
-//   res.render('otherForms', { 
-//     step: 6,
-//     data: req.session.data || {},
-//     formData: req.session.forms.step6 || {}
-//   });
-// });
-
-// app.post('/step6', (req, res) => {
-//   storeFormData(req, 'step6');
-//   res.redirect('/step7');
-// });
 
 app.get('/step7', (req, res) => {
   res.render('step7', { 
     step: 7,
-    data: req.session.data || {},
-    allForms: req.session.forms || {}
-  });
-});
-
-// Add a summary endpoint to view all stored data
-app.get('/summary', (req, res) => {
-  res.render('summary', { 
     data: req.session.data || {},
     allForms: req.session.forms || {}
   });
