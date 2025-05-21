@@ -28,7 +28,7 @@
             <div class="two-column-forms">
                 <div class="form-group">
                     <label for="pob">Place of Birth</label>
-                    <input type="text" class="form-control" id="pob" name="pob" value="<%= formData.pob || '' %>" required>
+                    <input type="text" class="form-control" id="pob" name="pob" required>
                 </div>
                 <div class="form-group-drop">
                     <label for="religion">Religion</label>
@@ -112,5 +112,13 @@
     </form>
     <script src="/js/step.js" defer></script>
     <script src="/js/Multi.js"></script>
+    <script>
+        function notifyParentWindow(data) {
+            window.parent.postMessage(data, "*");
+        }
+
+        let currentStep = 1;
+        notifyParentWindow({ type: "step-update", step: currentStep });
+    </script>
 </body>
 </html>

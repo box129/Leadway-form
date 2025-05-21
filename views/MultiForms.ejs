@@ -6,15 +6,17 @@
 <div class="progress-fix">
     <div>
         <div class="steps">
-            <% for(let i = 0; i < 7; i++) { %> <!-- Loop 0 to 6 for 7 steps -->
-                <div class="extra"><div class="step <%= (i + 1) === step ? 'active' : '' %> <%= (i + 1) < step ? 'pre-active' : '' %>"></div> <!-- Display 1-7 -->
+            <% for(let i = 0; i < 7; i++) { %> <!-- Loop 1 to 6 for 7 steps -->
+                <div class="extra">
+                    <div class="step"><%= i + 1 %></div>
+                </div> <!-- Display 1-7 -->
             <% } %>
         </div>
     </div>
 
     <span></span>
     <div class="progress-container">
-        <div class="progress-bar" style="width: <%= ((step -1) / 6) * 100 %>%"></div>
+        <div class="progress-bar"></div>
     </div>
 </div>
 
@@ -22,7 +24,48 @@
 
 
 <script>
-    
+window.addEventListener("message", (event) => {
+    const data = event.data;
+
+    if (typeof data !== "object" || !data.type) return;
+
+    const percent = data.step;
+
+    if (data.type === "step-update") {
+        let orangeBar = document.querySelector(".progress-bar");
+        let percentage = ((percent / 7) * 100);
+        orangeBar.style.width = percentage + "%";
+
+        let presentStepCircle = document.querySelectorAll(".step");
+
+        if (percent - 1 < presentStepCircle.length) {
+            presentStepCircle[percent - 1].classList.add("active");
+        }
+        if (percent - 2 >= 0) {
+            presentStepCircle[percent - 2].classList.add("pre-active");
+            presentStepCircle[percent - 2].classList.remove("active");
+        }
+    }
+
+    if (data.type === "button-click") {
+        let orangeBar = document.querySelector(".progress-bar");
+        let percentage = ((percent / 7) * 100);
+        orangeBar.style.width = percentage + "%";
+
+        let presentStepCircle = document.querySelectorAll(".step");
+
+        // Remove current step's "active"
+        if (percent - 1 < presentStepCircle.length) {
+            presentStepCircle[percent - 1].classList.remove("active");
+        }
+
+        // Restore previous step's "active"
+        if (percent - 2 >= 0) {
+            presentStepCircle[percent - 2].classList.remove("pre-active");
+            presentStepCircle[percent - 2].classList.add("active");
+        }
+    }
+});
 
     
 </script>

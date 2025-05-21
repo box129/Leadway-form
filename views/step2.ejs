@@ -120,5 +120,22 @@
     </form>
     <script src="/js/step.js" defer></script>
     <script src="/js/Multi.js"></script>
+    <script>
+        function notifyParentWindow(data) {
+            window.parent.postMessage(data, "*");
+        }
+
+        let currentStep = 2;
+        // notifyParentWindow(currentStep);
+        notifyParentWindow({ type: "step-update", step: currentStep });
+
+        let previousBtn = document.getElementById("previous");
+        previousBtn.addEventListener('click', () => {
+            let currentStep = 2; // or get this dynamically
+            notifyParentWindow({ type: "button-click", step: currentStep });
+            window.location.href = "/render-step/1";
+        });
+
+    </script>
 </body>
 </html>
