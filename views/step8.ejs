@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="/styles/multi.css">
+    <link rel="stylesheet" href="/styles/lead.css">
+    <link rel="stylesheet" href="/styles/form2.css">
+    <link rel="stylesheet" href="/styles/form3.css">
+    <link rel="stylesheet" href="/styles/form4.css">
+    <link rel="stylesheet" href="/styles/form5.css">
+    <link rel="stylesheet" href="/styles/form8.css">
+    <script src="/js/Multi.js" defer></script>
+    <script src="/js/step.js" defer></script>
+</head>
+<body>
+        <form action="" id="form8" class="form active">
+        <div>
+            <h4>Information Preview
+            </h4>
+        </div>
+        <div class="dropdown-boarder">
+            <div class="dropdown-head">
+                <h2>Personal Details</h2>
+                <a id="toggleButton1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="23" viewBox="0 0 24 23" fill="none">
+                        <circle cx="11.5" cy="11.5" r="11.5" transform="matrix(1 0 0 -1 0.5 23)" fill="#FF6606"/>
+                        <path d="M11.5 7L17.5622 13H5.43782L11.5 7Z" fill="white"/>
+                    </svg>
+                </a>
+            </div>
+            <div id="formContainer1" class ="hidden jo">
+                <!-- <div class="first-form"> -->
+                    <div class="two-column-forms">
+                        <div class="form-group">
+                            <label for="pob">Place of Birth</label>
+                            <input type="text" class="form-control" id="pob" name="pob" required>
+                        </div>
+                        <div class="form-group-drop">
+                            <label for="religion">Religion</label>
+                            <div class="custom-select-wrapper">
+                                <select name="religion" id="religion" class="list-control">
+                                    <option value="christainity">christainity</option>
+                                    <option value="islam">islam</option>
+                                    <option value="hinduism">hinduism</option>
+                                </select>
+                                <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
+                                    <circle cx="11.5" cy="11.5" r="11.5" fill="#FF6606"/>
+                                    <path d="M11 16L17.0622 10H4.93782L11 16Z" fill="white"/>
+                                </svg> 
+                            </div>
+                            
+                        </div>
+                        <div class="form-group">
+                            <label for="gender">Gender</label>
+                            <div class="custom-select-wrapper">
+                                <select name="gender" id="gender" class="list-control">
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
+                                    <circle cx="11.5" cy="11.5" r="11.5" fill="#FF6606"/>
+                                    <path d="M11 16L17.0622 10H4.93782L11 16Z" fill="white"/>
+                                </svg>
+                                <!-- <input type="date" class="form-control" id="dob" name="dob" required> -->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="homeAddress">Home Address</label>
+                            <input type="text" class="form-control" id="homeAddress" name="homeAddress" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="state">State</label>
+                            <input type="text" class="form-control" id="state" name="state" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <div class="custom-select-wrapper">
+                                <select name="city" id="city" class="list-control">
+                                    <option value="lagos">Lagos</option>
+                                    <option value="abuja">Abuja</option>
+                                    <option value="portharcourt">Port Harcourt</option>
+                                    <option value="ibadan">Ibadan</option>
+                                </select>
+                                <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
+                                    <circle cx="11.5" cy="11.5" r="11.5" fill="#FF6606"/>
+                                    <path d="M11 16L17.0622 10H4.93782L11 16Z" fill="white"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="file-upload">
+                                Upload your passport photograph
+                                <div class="file-box">
+                                <input type="file" id="file" hidden>
+                                <span class="file-name" id="file-name">No file chosen</span>
+                                <button type="button" id="upload-btn">Upload</button>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="form-group upload">
+                            <label class="file-upload">
+                                Upload your Signature
+                                <div class="file-box">
+                                <input type="file" id="file" hidden>
+                                <span class="file-name" id="file-name">No file chosen</span>
+                                <button type="button" id="upload-btn">Upload</button>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                <!-- </div> -->
+                <div class="edit">
+                    <a href="">Edit</a>
+                </div>
+            </div>
+        </div>
+        <div class="dropdown-boarder">
+            <div class="dropdown-head">
+                <h2>Identification Details</h2>
+                <a id="toggleButton2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="23" viewBox="0 0 24 23" fill="none">
+                        <circle cx="11.5" cy="11.5" r="11.5" transform="matrix(1 0 0 -1 0.5 23)" fill="#FF6606"/>
+                        <path d="M11.5 7L17.5622 13H5.43782L11.5 7Z" fill="white"/>
+                    </svg>
+                </a>
+            </div>
+            <div id="formContainer2" class ="hidden jo">
+                <div class="two-column-forms">
+                    <div>
+                        <label for="fname">First Name</label>
+                        <input type="text" class="form-control" id="fname" name="fname" required>
+                    </div>
+                    <div>
+                        <label for="lname">Last Name</label>
+                        <input type="text" class="form-control" id="lname" name="lname" required>
+                    </div>
+                    <div>
+                        <label for="LicNo">License Number</label>
+                        <input type="text" class="form-control" id="LicNo" name="LicNo" required>
+                    </div>
+                </div>
+                <div class="edit">
+                    <a href="">Edit</a>
+                </div>
+            </div>
+            
+        
+        </div>
+    
+        <div class="dropdown-boarder">
+            <div class="dropdown-head">
+                <h2>Beneficiary Details</h2>
+                <a id="toggleButton3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="23" viewBox="0 0 24 23" fill="none">
+                        <circle cx="11.5" cy="11.5" r="11.5" transform="matrix(1 0 0 -1 0.5 23)" fill="#FF6606"/>
+                        <path d="M11.5 7L17.5622 13H5.43782L11.5 7Z" fill="white"/>
+                    </svg>
+                </a>
+            </div>
+            <div id="formContainer3" class ="hidden jo">
+                <div class="two-column-forms">
+                    <div class="form-group">
+                        <label for="fname">First Name</label>
+                        <input type="text" class="form-control" id="fname" name="fname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lname">Last Name</label>
+                        <input type="text" class="form-control" id="lname" name="lname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dob">Date of Birth</label>
+                        <input type="date" class="form-control" id="dob" name="dob" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <div class="custom-select-wrapper">
+                            <select name="gender" id="gender" class="list-control">
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
+                                <circle cx="11.5" cy="11.5" r="11.5" fill="#FF6606"/>
+                                <path d="M11 16L17.0622 10H4.93782L11 16Z" fill="white"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="">Edit</a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    
+        <div class="dropdown-boarder">
+            <div class="dropdown-head">
+                <h2>Executor Details</h2>
+                <a id="toggleButton4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="23" viewBox="0 0 24 23" fill="none">
+                        <circle cx="11.5" cy="11.5" r="11.5" transform="matrix(1 0 0 -1 0.5 23)" fill="#FF6606"/>
+                        <path d="M11.5 7L17.5622 13H5.43782L11.5 7Z" fill="white"/>
+                    </svg>
+                </a>
+            </div>
+            <div id="formContainer4" class ="hidden jo">
+                <div class="two-column-forms">
+                    <div class="form-group">
+                        <label for="fname">First Name</label>
+                        <input type="text" class="form-control" id="fname" name="fname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lname">Last Name</label>
+                        <input type="text" class="form-control" id="lname" name="lname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" class="form-control" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input type="address" class="form-control" id="address" name="address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <div class="custom-select-wrapper">
+                            <select name="city" id="city" class="list-control">
+                                <option value="lagos">Lagos</option>
+                                <option value="abuja">Abuja</option>
+                                <option value="portharcourt">Port Harcourt</option>
+                                <option value="ibadan">Ibadan</option>
+                            </select>
+                            <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
+                                <circle cx="11.5" cy="11.5" r="11.5" fill="#FF6606"/>
+                                <path d="M11 16L17.0622 10H4.93782L11 16Z" fill="white"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State</label>
+                        <div class="custom-select-wrapper">
+                            <select name="state" id="state" class="list-control">
+                                <option value="osun">Osun</option>
+                                <option value="ondo">Ondo</option>
+                                <option value="ekiti">Ekiti</option>
+                                <option value="lagos">Lagos</option>
+                            </select>
+                            <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
+                                <circle cx="11.5" cy="11.5" r="11.5" fill="#FF6606"/>
+                                <path d="M11 16L17.0622 10H4.93782L11 16Z" fill="white"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="edit">
+                        <a href="">Edit</a>
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+    
+        <div class="dropdown-boarder">
+            <div class="dropdown-head">
+                <h2>Guardian Details</h2>
+                <a id="toggleButton5">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="23" viewBox="0 0 24 23" fill="none">
+                        <circle cx="11.5" cy="11.5" r="11.5" transform="matrix(1 0 0 -1 0.5 23)" fill="#FF6606"/>
+                        <path d="M11.5 7L17.5622 13H5.43782L11.5 7Z" fill="white"/>
+                    </svg>
+                </a>
+            </div>
+            <div id="formContainer5" class ="hidden jo">
+                <div class="two-column-forms">
+                    <div class="form-group">
+                        <label for="fname">First Name</label>
+                        <input type="text" class="form-control" id="fname" name="fname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lname">Last Name</label>
+                        <input type="text" class="form-control" id="lname" name="lname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" class="form-control" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="Relationship">Relationship</label>
+                        <input type="text" class="form-control" id="Relationship" name="relationship" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input type="address" class="form-control" id="address" name="address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <div class="custom-select-wrapper">
+                            <select name="city" id="city" class="list-control">
+                                <option value="lagos">Lagos</option>
+                                <option value="abuja">Abuja</option>
+                                <option value="portharcourt">Port Harcourt</option>
+                                <option value="ibadan">Ibadan</option>
+                            </select>
+                            <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
+                                <circle cx="11.5" cy="11.5" r="11.5" fill="#FF6606"/>
+                                <path d="M11 16L17.0622 10H4.93782L11 16Z" fill="white"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State</label>
+                        <div class="custom-select-wrapper">
+                            <select name="state" id="state" class="list-control">
+                                <option value="osun">Osun</option>
+                                <option value="ondo">Ondo</option>
+                                <option value="ekiti">Ekiti</option>
+                                <option value="lagos">Lagos</option>
+                            </select>
+                            <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
+                                <circle cx="11.5" cy="11.5" r="11.5" fill="#FF6606"/>
+                                <path d="M11 16L17.0622 10H4.93782L11 16Z" fill="white"/>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="edit">
+                    <a href="">Edit</a>
+                </div>
+            </div>
+
+        </div>
+    
+        <div class="dropdown-boarder">
+             <div class="dropdown-head">
+                <h2>RSA Assets</h2>
+                <a id="toggleButton6">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="23" viewBox="0 0 24 23" fill="none">
+                        <circle cx="11.5" cy="11.5" r="11.5" transform="matrix(1 0 0 -1 0.5 23)" fill="#FF6606"/>
+                        <path d="M11.5 7L17.5622 13H5.43782L11.5 7Z" fill="white"/>
+                    </svg>
+                </a>
+            </div>
+            <div id="formContainer6" class ="hidden">
+                <div class="two-column-forms">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pin">PIN Number</label>
+                        <input type="text" class="form-control" id="pin" name="pin" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pfa">PFA</label>
+                        <input type="text" class="form-control" id="pfa" name="pfa" required>
+                    </div>
+                </div>
+                <div>
+                    <a href="">Edit</a>
+                </div>
+            </div>
+            
+        </div>
+    
+        <div class="dropdown-boarder">
+            <div class="dropdown-head">
+                <h2>Beneficiary Asset %</h2>
+                <a id="toggleButton7">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="23" viewBox="0 0 24 23" fill="none">
+                        <circle cx="11.5" cy="11.5" r="11.5" transform="matrix(1 0 0 -1 0.5 23)" fill="#FF6606"/>
+                        <path d="M11.5 7L17.5622 13H5.43782L11.5 7Z" fill="white"/>
+                    </svg>
+                </a>
+            </div>
+            <div id="formContainer7" class ="hidden">
+                <div class="two-column-forms">
+                    <div class="form-group">
+                        <label for="beneficiary">Beneficiary</label>
+                        <div class="custom-select-wrapper">
+                            <select name="beneficiary" id="beneficiary" class="list-control">
+                                <option value="beneficiary1">Beneficiary 1</option>
+                                <option value="beneficiary2">Beneficiary 2</option>
+                                <option value="beneficiary3">Beneficiary 3</option>
+                            </select>
+                            <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
+                                <circle cx="11.5" cy="11.5" r="11.5" fill="#FF6606"/>
+                                <path d="M11 16L17.0622 10H4.93782L11 16Z" fill="white"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="asset">Asset</label>
+                        <input type="number" class="form-control" id="asset" name="asset" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="percentage">Percentage(%)</label>
+                        <input type="number" class="form-control" id="percentage" name="percentage" required>
+                    </div>
+                </div>
+                <div>
+                    <a href="">Edit</a>
+                </div>
+            </div>
+
+        </div>
+    
+        <div class="btn-sided">
+            <div>
+                <button type="button" class="btn-previous previous0" id="previous0">Previous</button>
+            </div>
+            <div class="force-space">
+                <a href="">Save and Continue Later</a>
+                <button type="submit" class="inc-btn">Proceed</button>
+            </div>
+        </div>
+    
+    </form>
+    <script src="/js/step.js" defer></script>
+    <script src="/js/Multi.js"></script>
+</body>
+</html>

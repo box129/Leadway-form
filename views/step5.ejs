@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="/styles/multi.css">
+    <link rel="stylesheet" href="/styles/lead.css">
+    <link rel="stylesheet" href="/styles/form2.css">
+    <link rel="stylesheet" href="/styles/form3.css">
+    <link rel="stylesheet" href="/styles/form4.css">
+    <link rel="stylesheet" href="/styles/form5.css">
+    <link rel="stylesheet" href="/styles/form8.css">
+    <script src="/js/Multi.js" defer></script>
+    <script src="/js/step.js" defer></script>
+</head>
+<body>
+        <form action="/submit-step/5" id="form5" method="post">
+        <div class="first-form" id = "guardian-container">
+            <h4>Guardian Details</h4>
+            
+                <div class="exec-info">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+                        <g opacity="0.5">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.5 0C4.25341 0 0 4.25341 0 9.5C0 14.7466 4.25341 19 9.5 19C14.7466 19 19 14.7466 19 9.5C19 4.25341 14.7466 0 9.5 0ZM9.06818 4.31818C8.83913 4.31818 8.61946 4.40917 8.4575 4.57114C8.29554 4.7331 8.20455 4.95277 8.20455 5.18182C8.20455 5.41087 8.29554 5.63054 8.4575 5.7925C8.61946 5.95446 8.83913 6.04545 9.06818 6.04545H9.5C9.72905 6.04545 9.94872 5.95446 10.1107 5.7925C10.2726 5.63054 10.3636 5.41087 10.3636 5.18182C10.3636 4.95277 10.2726 4.7331 10.1107 4.57114C9.94872 4.40917 9.72905 4.31818 9.5 4.31818H9.06818ZM7.77273 7.77273C7.54368 7.77273 7.32401 7.86372 7.16204 8.02568C7.00008 8.18764 6.90909 8.40731 6.90909 8.63636C6.90909 8.86541 7.00008 9.08508 7.16204 9.24705C7.32401 9.40901 7.54368 9.5 7.77273 9.5H8.63636V12.0909H7.77273C7.54368 12.0909 7.32401 12.1819 7.16204 12.3439C7.00008 12.5058 6.90909 12.7255 6.90909 12.9545C6.90909 13.1836 7.00008 13.4033 7.16204 13.5652C7.32401 13.7272 7.54368 13.8182 7.77273 13.8182H11.2273C11.4563 13.8182 11.676 13.7272 11.838 13.5652C11.9999 13.4033 12.0909 13.1836 12.0909 12.9545C12.0909 12.7255 11.9999 12.5058 11.838 12.3439C11.676 12.1819 11.4563 12.0909 11.2273 12.0909H10.3636V8.63636C10.3636 8.40731 10.2726 8.18764 10.1107 8.02568C9.94872 7.86372 9.72905 7.77273 9.5 7.77273H7.77273Z" fill="#505050"/>
+                        </g>
+                    </svg>
+
+                    <p>The persons chosen should be willing to assume this responsibility should the unplanned happen.</p>
+                </div>
+            <div class="two-column-forms guardian">
+                <div class="form-group">
+                    <label for="fname">First Name</label>
+                    <input type="text" class="form-control" id="fname" name="fname" required>
+                </div>
+                <div class="form-group">
+                    <label for="lname">Last Name</label>
+                    <input type="text" class="form-control" id="lname" name="lname" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" class="form-control" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="Relationship">Relationship</label>
+                    <input type="text" class="form-control" id="Relationship" name="relationship" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input type="address" class="form-control" id="address" name="address" required>
+                </div>
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <div class="custom-select-wrapper">
+                        <select name="city" id="city" class="list-control">
+                            <option value="lagos">Lagos</option>
+                            <option value="abuja">Abuja</option>
+                            <option value="portharcourt">Port Harcourt</option>
+                            <option value="ibadan">Ibadan</option>
+                        </select>
+                        <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
+                            <circle cx="11.5" cy="11.5" r="11.5" fill="#FF6606"/>
+                            <path d="M11 16L17.0622 10H4.93782L11 16Z" fill="white"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="state">State</label>
+                    <div class="custom-select-wrapper">
+                        <select name="state" id="state" class="list-control">
+                            <option value="osun">Osun</option>
+                            <option value="ondo">Ondo</option>
+                            <option value="ekiti">Ekiti</option>
+                            <option value="lagos">Lagos</option>
+                        </select>
+                        <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
+                            <circle cx="11.5" cy="11.5" r="11.5" fill="#FF6606"/>
+                            <path d="M11 16L17.0622 10H4.93782L11 16Z" fill="white"/>
+                        </svg>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+        <div class="more-guardian">
+            <a href="#" id="add-guardian"><div class="circle"><span ><b>+</b></span></div>Add Another Guardian</a>
+        </div>
+        <div class="btn-sided">
+            <div>
+                <button type="button" class="btn-previous previous0" id="previous">Previous</button>
+            </div>
+            <div class="force-space">
+                <a href="">Save and Continue Later</a>
+                <button type="submit" class="inc-btn" id = "next5">Proceed</button>
+            </div>
+        </div>
+    </form>
+    <script src="/js/step.js" defer></script>
+    <script src="/js/Multi.js"></script>
+</body>
+</html>

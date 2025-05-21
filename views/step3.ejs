@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="/styles/multi.css">
+    <link rel="stylesheet" href="/styles/lead.css">
+    <link rel="stylesheet" href="/styles/form2.css">
+    <link rel="stylesheet" href="/styles/form3.css">
+    <link rel="stylesheet" href="/styles/form4.css">
+    <link rel="stylesheet" href="/styles/form5.css">
+    <link rel="stylesheet" href="/styles/form8.css">
+    <script src="/js/Multi.js" defer></script>
+    <script src="/js/step.js" defer></script>
+</head>
+<body>
+        <form action="/submit-step/3" id="form3" method="post">
+        <div class="first-form" id="beneficiaries-container">
+            <div>
+                <h4>Beneficiary Details</h4>
+            </div>
+            <div class="two-column-forms beneficiary">
+                <div class="form-group">
+                    <label for="fname">First Name</label>
+                    <input type="text" class="form-control" id="fname" name="fname" required>
+                </div>
+                <div class="form-group">
+                    <label for="lname">Last Name</label>
+                    <input type="text" class="form-control" id="lname" name="lname" required>
+                </div>
+                <div class="form-group">
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" class="form-control" id="dob" name="dob" required>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <div class="custom-select-wrapper">
+                        <select name="gender" id="gender" class="list-control">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
+                            <circle cx="11.5" cy="11.5" r="11.5" fill="#FF6606"/>
+                            <path d="M11 16L17.0622 10H4.93782L11 16Z" fill="white"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <div class="more-beneficiary">
+            <a href="#" id="add-beneficiary"><div class="circle"><span ><b>+</b></span></div> Add Another Beneficiary</a>
+        </div>
+        <div class="btn-sided">
+            <div>
+                <button type="button" class="btn-previous previous0" id="previous">Previous</button>
+            </div>
+            <div class="force-space">
+                <a href="">Save and Continue Later</a>
+                <button type="submit" class="inc-btn" id = "next3">Proceed</button>
+            </div>
+        </div>
+    </form>
+    <script src="/js/step.js" defer></script>
+    <script src="/js/Multi.js"></script>
+</body>
+</html>
