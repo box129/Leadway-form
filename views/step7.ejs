@@ -38,9 +38,9 @@
                     <label for="beneficiary">Beneficiary</label>
                     <div class="custom-select-wrapper">
                         <select name="beneficiary" id="beneficiary" class="list-control">
-                            <option value="beneficiary1">Beneficiary 1</option>
-                            <option value="beneficiary2">Beneficiary 2</option>
-                            <option value="beneficiary3">Beneficiary 3</option>
+                            <option value="beneficiary1" <%= data.beneficiary === 'beneficiary1' ? 'selected' : '' %>>Beneficiary 1</option>
+                            <option value="beneficiary2" <%= data.beneficiary === 'beneficiary2' ? 'selected' : '' %>>Beneficiary 2</option>
+                            <option value="beneficiary3" <%= data.beneficiary === 'beneficiary3' ? 'selected' : '' %>>Beneficiary 3</option>
                         </select>
                         <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
                             <circle cx="11.5" cy="11.5" r="11.5" fill="#FF6606"/>
@@ -50,11 +50,11 @@
                 </div>
                 <div class="form-group">
                     <label for="asset">Asset</label>
-                    <input type="number" class="form-control" id="asset" name="asset" required>
+                    <input type="number" class="form-control" id="asset" name="asset" value="<%= data.asset || '' %>" required>
                 </div>
                 <div class="form-group">
                     <label for="percentage">Percentage(%)</label>
-                    <input type="number" class="form-control" id="percentage" name="percentage" required>
+                    <input type="number" class="form-control" id="percentage" name="percentage" value="<%= data.asset || '' %>" required>
                 </div>
             </div>
         </div>

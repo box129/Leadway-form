@@ -3,15 +3,30 @@ const inputFile = document.getElementById('file'); // Renamed 'input' to avoid c
 const fileNameElement = document.getElementById('file-name');
 const uploadBtn = document.getElementById('upload-btn');
 
-if (uploadBtn && inputFile) {
-    uploadBtn.addEventListener('click', () => inputFile.click());
+// if (uploadBtn && inputFile) {
+//     uploadBtn.addEventListener('click', () => inputFile.click());
+// }
+
+// if (inputFile && fileNameElement) {
+//     inputFile.addEventListener('change', () => {
+//         fileNameElement.textContent = inputFile.files[0]?.name || 'No file chosen';
+//     });
+// }
+
+function setupUpload(fileId, btnId, nameId) {
+  const input = document.getElementById(fileId);
+  const btn = document.getElementById(btnId);
+  const name = document.getElementById(nameId);
+
+  btn?.addEventListener("click", () => input?.click());
+  input?.addEventListener("change", () => {
+    name.textContent = input.files[0]?.name || 'No file chosen';
+  });
 }
 
-if (inputFile && fileNameElement) {
-    inputFile.addEventListener('change', () => {
-        fileNameElement.textContent = inputFile.files[0]?.name || 'No file chosen';
-    });
-}
+setupUpload("passport-file", "passport-upload-btn", "passport-file-name");
+setupUpload("signature-file", "signature-upload-btn", "signature-file-name");
+
 
 document.addEventListener("DOMContentLoaded", () => {
 

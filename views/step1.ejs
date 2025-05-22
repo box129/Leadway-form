@@ -20,7 +20,7 @@
     
 </head>
 <body>
-    <form action="/submit-step/1" id="form1" method="post">
+    <form action="/submit-step/1" id="form1" method="post" enctype="multipart/form-data">
         <div class="first-form">
             <div>
                 <h4>Personal Detials</h4>
@@ -28,15 +28,15 @@
             <div class="two-column-forms">
                 <div class="form-group">
                     <label for="pob">Place of Birth</label>
-                    <input type="text" class="form-control" id="pob" name="pob" required>
+                    <input type="text" class="form-control" id="pob" name="pob" value="<%= data.pob || '' %>" required>
                 </div>
                 <div class="form-group-drop">
                     <label for="religion">Religion</label>
                     <div class="custom-select-wrapper">
                         <select name="religion" id="religion" class="list-control">
-                            <option value="christainity">christainity</option>
-                            <option value="islam">islam</option>
-                            <option value="hinduism">hinduism</option>
+                            <option value="christainity" <%= data.religion === 'christainity' ? 'selected' : '' %>>christainity</option>
+                            <option value="islam" <%= data.religion === 'islam' ? 'selected' : '' %>>islam</option>
+                            <option value="hinduism" <%= data.religion === 'hinduism' ? 'selected' : '' %>>hinduism</option>
                         </select>
                         <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
                             <circle cx="11.5" cy="11.5" r="11.5" fill="#FF6606"/>
@@ -49,10 +49,11 @@
                     <label for="gender">Gender</label>
                     <div class="custom-select-wrapper">
                         <select name="gender" id="gender" class="list-control">
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                            <option value="other">Other</option>
+                        <option value="male" <%= data.gender === 'male' ? 'selected' : '' %>>Male</option>
+                        <option value="female" <%= data.gender === 'female' ? 'selected' : '' %>>Female</option>
+                        <option value="other" <%= data.gender === 'other' ? 'selected' : '' %>>Other</option>
                         </select>
+
                         <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
                             <circle cx="11.5" cy="11.5" r="11.5" fill="#FF6606"/>
                             <path d="M11 16L17.0622 10H4.93782L11 16Z" fill="white"/>
@@ -62,20 +63,20 @@
                 </div>
                 <div class="form-group">
                     <label for="homeAddress">Home Address</label>
-                    <input type="text" class="form-control" id="homeAddress" name="homeAddress" required>
+                    <input type="text" class="form-control" id="homeAddress" name="homeAddress" value="<%= data.homeAddress || '' %>" required>
                 </div>
                 <div class="form-group">
                     <label for="state">State</label>
-                    <input type="text" class="form-control" id="state" name="state" required>
+                    <input type="text" class="form-control" id="state" name="state" value="<%= data.state || '' %>" required>
                 </div>
                 <div class="form-group">
                     <label for="city">City</label>
                     <div class="custom-select-wrapper">
                         <select name="city" id="city" class="list-control">
-                            <option value="lagos">Lagos</option>
-                            <option value="abuja">Abuja</option>
-                            <option value="portharcourt">Port Harcourt</option>
-                            <option value="ibadan">Ibadan</option>
+                            <option value="lagos" <%= data.city === 'lagos' ? 'selected' : '' %>>Lagos</option>
+                            <option value="abuja" <%= data.city === 'abuja' ? 'selected' : '' %>>Abuja</option>
+                            <option value="portharcourt" <%= data.city === 'portharcourt' ? 'selected' : '' %>>Port Harcourt</option>
+                            <option value="ibadan" <%= data.city === 'ibadan' ? 'selected' : '' %>>Ibadan</option>
                         </select>
                         <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
                             <circle cx="11.5" cy="11.5" r="11.5" fill="#FF6606"/>
@@ -87,9 +88,9 @@
                     <label class="file-upload">
                         Upload your passport photograph
                         <div class="file-box">
-                          <input type="file" id="file" hidden>
-                          <span class="file-name" id="file-name">No file chosen</span>
-                          <button type="button" id="upload-btn">Upload</button>
+                            <input type="file" id="passport-file" name="passport" hidden>
+                            <span class="file-name" id="passport-file-name">No file chosen</span>
+                            <button type="button" id="passport-upload-btn">Upload</button>
                         </div>
                     </label>
                 </div>
@@ -97,9 +98,9 @@
                     <label class="file-upload">
                         Upload your Signature
                         <div class="file-box">
-                          <input type="file" id="file" hidden>
-                          <span class="file-name" id="file-name">No file chosen</span>
-                          <button type="button" id="upload-btn">Upload</button>
+                            <input type="file" id="signature-file" name="signature" hidden>
+                            <span class="file-name" id="signature-file-name">No file chosen</span>
+                            <button type="button" id="signature-upload-btn">Upload</button>
                         </div>
                     </label>
                 </div>

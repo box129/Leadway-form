@@ -40,11 +40,12 @@
                     <div class="two-column-forms">
                         <div class="form-group">
                             <label for="pob">Place of Birth</label>
-                            <input type="text" class="form-control" id="pob" name="pob" required>
+                            <input type="text" class="form-control" id="pob" name="pob" value="<%= stepsData[1]?.pob %>" readonly>
                         </div>
                         <div class="form-group-drop">
                             <label for="religion">Religion</label>
-                            <div class="custom-select-wrapper">
+                            <input type="text" class="form-control" name="religion" value="<%= stepsData[1]?.religion %>" readonly>
+                            <!-- <div class="custom-select-wrapper">
                                 <select name="religion" id="religion" class="list-control">
                                     <option value="christainity">christainity</option>
                                     <option value="islam">islam</option>
@@ -54,12 +55,14 @@
                                     <circle cx="11.5" cy="11.5" r="11.5" fill="#FF6606"/>
                                     <path d="M11 16L17.0622 10H4.93782L11 16Z" fill="white"/>
                                 </svg> 
-                            </div>
+                            </div> -->
                             
                         </div>
                         <div class="form-group">
                             <label for="gender">Gender</label>
-                            <div class="custom-select-wrapper">
+                            <input type="text" class="form-control" name="gender" value="<%= stepsData[1]?.gender || '' %>" readonly>
+
+                            <!-- <div class="custom-select-wrapper">
                                 <select name="gender" id="gender" class="list-control">
                                     <option value="male">Male</option>
                                     <option value="female">Female</option>
@@ -69,20 +72,20 @@
                                     <circle cx="11.5" cy="11.5" r="11.5" fill="#FF6606"/>
                                     <path d="M11 16L17.0622 10H4.93782L11 16Z" fill="white"/>
                                 </svg>
-                                <!-- <input type="date" class="form-control" id="dob" name="dob" required> -->
-                            </div>
+                            </div> -->
                         </div>
                         <div class="form-group">
                             <label for="homeAddress">Home Address</label>
-                            <input type="text" class="form-control" id="homeAddress" name="homeAddress" required>
+                            <input type="text" class="form-control" id="homeAddress" name="homeAddress" value="<%= stepsData[1]?.homeAddress %>" readonly>
                         </div>
                         <div class="form-group">
                             <label for="state">State</label>
-                            <input type="text" class="form-control" id="state" name="state" required>
+                            <input type="text" class="form-control" id="state" name="state" value="<%= stepsData[1]?.state %>" readonly>
                         </div>
                         <div class="form-group">
                             <label for="city">City</label>
-                            <div class="custom-select-wrapper">
+                            <input type="text" class="form-control" id="city" name="city" value="<%= stepsData[1]?.city %>" readonly>
+                            <!-- <div class="custom-select-wrapper">
                                 <select name="city" id="city" class="list-control">
                                     <option value="lagos">Lagos</option>
                                     <option value="abuja">Abuja</option>
@@ -93,26 +96,29 @@
                                     <circle cx="11.5" cy="11.5" r="11.5" fill="#FF6606"/>
                                     <path d="M11 16L17.0622 10H4.93782L11 16Z" fill="white"/>
                                 </svg>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="form-group">
                             <label class="file-upload">
-                                Upload your passport photograph
-                                <div class="file-box">
-                                <input type="file" id="file" hidden>
-                                <span class="file-name" id="file-name">No file chosen</span>
-                                <button type="button" id="upload-btn">Upload</button>
-                                </div>
+                                Passport photograph
+                                
+                                <% if (stepsData[1]?.passport) { %>
+                                <br/>
+                                <img src="/uploads/<%= stepsData[1]?.passport %>" alt="Passport" width="150px" height="150px" style="display:flex; justify-content: center;">
+                                <% } else { %>
+                                <p>No passport uploaded.</p>
+                                <% } %>
+
                             </label>
                         </div>
                         <div class="form-group upload">
                             <label class="file-upload">
-                                Upload your Signature
-                                <div class="file-box">
-                                <input type="file" id="file" hidden>
-                                <span class="file-name" id="file-name">No file chosen</span>
-                                <button type="button" id="upload-btn">Upload</button>
-                                </div>
+                                Signature
+                                <% if (stepsData[1]?.passport) { %>
+                                <img src="/uploads/<%= stepsData[1]?.signature %>" alt="Signature"width="150px" height="150px" style="display:flex; justify-content: center;">
+                                <% } else { %>
+                                <p>No passport uploaded.</p>
+                                <% } %>
                             </label>
                         </div>
                     </div>
@@ -136,15 +142,15 @@
                 <div class="two-column-forms">
                     <div>
                         <label for="fname">First Name</label>
-                        <input type="text" class="form-control" id="fname" name="fname" required>
+                        <input type="text" class="form-control" id="fname" name="fname" value="<%= stepsData[2]?.fname %>" readonly>
                     </div>
                     <div>
                         <label for="lname">Last Name</label>
-                        <input type="text" class="form-control" id="lname" name="lname" required>
+                        <input type="text" class="form-control" id="lname" name="lname" value="<%= stepsData[2]?.lname %>" readonly>
                     </div>
                     <div>
-                        <label for="LicNo">License Number</label>
-                        <input type="text" class="form-control" id="LicNo" name="LicNo" required>
+                        <label for="licenseno">License Number</label>
+                        <input type="number" class="form-control" id="licenseno" name="licenseno" value="<%= stepsData[2]?.licenseno %>" readonly>
                     </div>
                 </div>
                 <div class="edit">
@@ -169,19 +175,20 @@
                 <div class="two-column-forms">
                     <div class="form-group">
                         <label for="fname">First Name</label>
-                        <input type="text" class="form-control" id="fname" name="fname" required>
+                        <input type="text" class="form-control" id="fname" name="fname" value="<%= stepsData[3]?.fname %>" readonly>
                     </div>
                     <div class="form-group">
                         <label for="lname">Last Name</label>
-                        <input type="text" class="form-control" id="lname" name="lname" required>
+                        <input type="text" class="form-control" id="lname" name="lname" value="<%= stepsData[3]?.lname %>" readonly>
                     </div>
                     <div class="form-group">
                         <label for="dob">Date of Birth</label>
-                        <input type="date" class="form-control" id="dob" name="dob" required>
+                        <input type="date" class="form-control" id="dob" name="dob" value="<%= stepsData[3]?.dob %>" readonly>
                     </div>
                     <div class="form-group">
                         <label for="gender">Gender</label>
-                        <div class="custom-select-wrapper">
+                        <input type="text" class="form-control" name="gender" value="<%= stepsData[3]?.gender %>">
+                        <!-- <div class="custom-select-wrapper">
                             <select name="gender" id="gender" class="list-control">
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
@@ -191,7 +198,7 @@
                                 <circle cx="11.5" cy="11.5" r="11.5" fill="#FF6606"/>
                                 <path d="M11 16L17.0622 10H4.93782L11 16Z" fill="white"/>
                             </svg>
-                        </div>
+                        </div> -->
                     </div>
                     <div>
                         <a href="">Edit</a>
@@ -215,23 +222,24 @@
                 <div class="two-column-forms">
                     <div class="form-group">
                         <label for="fname">First Name</label>
-                        <input type="text" class="form-control" id="fname" name="fname" required>
+                        <input type="text" class="form-control" id="fname" name="fname" value="<%= stepsData[4]?.fname %>" readonly>
                     </div>
                     <div class="form-group">
                         <label for="lname">Last Name</label>
-                        <input type="text" class="form-control" id="lname" name="lname" required>
+                        <input type="text" class="form-control" id="lname" name="lname" value="<%= stepsData[4]?.lname %>" readonly>
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone Number</label>
-                        <input type="tel" class="form-control" id="phone" name="phone" required>
+                        <input type="tel" class="form-control" id="phone" name="phone" value="<%= stepsData[4]?.phone %>" readonly>
                     </div>
                     <div class="form-group">
                         <label for="address">Address</label>
-                        <input type="address" class="form-control" id="address" name="address" required>
+                        <input type="address" class="form-control" id="address" name="address" value="<%= stepsData[4]?.address %>" readonly>
                     </div>
                     <div class="form-group">
                         <label for="city">City</label>
-                        <div class="custom-select-wrapper">
+                        <input type="text" class="form-control" name="city" value="<%= stepsData[4]?.city %>">
+                        <!-- <div class="custom-select-wrapper">
                             <select name="city" id="city" class="list-control">
                                 <option value="lagos">Lagos</option>
                                 <option value="abuja">Abuja</option>
@@ -242,11 +250,12 @@
                                 <circle cx="11.5" cy="11.5" r="11.5" fill="#FF6606"/>
                                 <path d="M11 16L17.0622 10H4.93782L11 16Z" fill="white"/>
                             </svg>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="form-group">
                         <label for="state">State</label>
-                        <div class="custom-select-wrapper">
+                        <input type="text" class="form-control" name="state" value="<%= stepsData[4]?.state %>">
+                        <!-- <div class="custom-select-wrapper">
                             <select name="state" id="state" class="list-control">
                                 <option value="osun">Osun</option>
                                 <option value="ondo">Ondo</option>
@@ -257,7 +266,7 @@
                                 <circle cx="11.5" cy="11.5" r="11.5" fill="#FF6606"/>
                                 <path d="M11 16L17.0622 10H4.93782L11 16Z" fill="white"/>
                             </svg>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="edit">
                         <a href="">Edit</a>
@@ -282,27 +291,28 @@
                 <div class="two-column-forms">
                     <div class="form-group">
                         <label for="fname">First Name</label>
-                        <input type="text" class="form-control" id="fname" name="fname" required>
+                        <input type="text" class="form-control" id="fname" name="fname" value="<%= stepsData[5]?.fname %>" readonly>
                     </div>
                     <div class="form-group">
                         <label for="lname">Last Name</label>
-                        <input type="text" class="form-control" id="lname" name="lname" required>
+                        <input type="text" class="form-control" id="lname" name="lname" value="<%= stepsData[5]?.lname %>" readonly>
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone Number</label>
-                        <input type="tel" class="form-control" id="phone" name="phone" required>
+                        <input type="tel" class="form-control" id="phone" name="phone" value="<%= stepsData[5]?.phone %>" readonly>
                     </div>
                     <div class="form-group">
                         <label for="Relationship">Relationship</label>
-                        <input type="text" class="form-control" id="Relationship" name="relationship" required>
+                        <input type="text" class="form-control" id="Relationship" name="relationship" value="<%= stepsData[5]?.relationship %>" readonly>
                     </div>
                     <div class="form-group">
                         <label for="address">Address</label>
-                        <input type="address" class="form-control" id="address" name="address" required>
+                        <input type="address" class="form-control" id="address" name="address" value="<%= stepsData[5]?.address %>" readonly>
                     </div>
                     <div class="form-group">
                         <label for="city">City</label>
-                        <div class="custom-select-wrapper">
+                        <input type="text" class="form-control" name="city" value="<%= stepsData[5]?.city %>">
+                        <!-- <div class="custom-select-wrapper">
                             <select name="city" id="city" class="list-control">
                                 <option value="lagos">Lagos</option>
                                 <option value="abuja">Abuja</option>
@@ -313,11 +323,12 @@
                                 <circle cx="11.5" cy="11.5" r="11.5" fill="#FF6606"/>
                                 <path d="M11 16L17.0622 10H4.93782L11 16Z" fill="white"/>
                             </svg>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="form-group">
                         <label for="state">State</label>
-                        <div class="custom-select-wrapper">
+                        <input type="text" class="form-control" name="state" value="<%= stepsData[5]?.state %>">
+                        <!-- <div class="custom-select-wrapper">
                             <select name="state" id="state" class="list-control">
                                 <option value="osun">Osun</option>
                                 <option value="ondo">Ondo</option>
@@ -328,7 +339,7 @@
                                 <circle cx="11.5" cy="11.5" r="11.5" fill="#FF6606"/>
                                 <path d="M11 16L17.0622 10H4.93782L11 16Z" fill="white"/>
                             </svg>
-                        </div>
+                        </div> -->
                     </div>
                     
                 </div>
@@ -353,15 +364,15 @@
                 <div class="two-column-forms">
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" name="name" required>
+                        <input type="text" class="form-control" id="name" name="name" value="<%= stepsData[6]?.name %>" readonly>
                     </div>
                     <div class="form-group">
                         <label for="pin">PIN Number</label>
-                        <input type="text" class="form-control" id="pin" name="pin" required>
+                        <input type="text" class="form-control" id="pin" name="pin" value="<%= stepsData[6]?.pin %>" readonly>
                     </div>
                     <div class="form-group">
                         <label for="pfa">PFA</label>
-                        <input type="text" class="form-control" id="pfa" name="pfa" required>
+                        <input type="text" class="form-control" id="pfa" name="pfa" value="<%= stepsData[6]?.pfa %>" readonly>
                     </div>
                 </div>
                 <div>
@@ -385,7 +396,8 @@
                 <div class="two-column-forms">
                     <div class="form-group">
                         <label for="beneficiary">Beneficiary</label>
-                        <div class="custom-select-wrapper">
+                        <input type="text" class="form-control" name="beneficiary" value="<%= stepsData[7]?.beneficiary %>">
+                        <!-- <div class="custom-select-wrapper">
                             <select name="beneficiary" id="beneficiary" class="list-control">
                                 <option value="beneficiary1">Beneficiary 1</option>
                                 <option value="beneficiary2">Beneficiary 2</option>
@@ -395,15 +407,15 @@
                                 <circle cx="11.5" cy="11.5" r="11.5" fill="#FF6606"/>
                                 <path d="M11 16L17.0622 10H4.93782L11 16Z" fill="white"/>
                             </svg>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="form-group">
                         <label for="asset">Asset</label>
-                        <input type="number" class="form-control" id="asset" name="asset" required>
+                        <input type="number" class="form-control" id="asset" name="asset" value="<%= stepsData[7]?.asset %>" readonly>
                     </div>
                     <div class="form-group">
                         <label for="percentage">Percentage(%)</label>
-                        <input type="number" class="form-control" id="percentage" name="percentage" required>
+                        <input type="number" class="form-control" id="percentage" name="percentage" value="<%= stepsData[7]?.percentage %>" readonly>
                     </div>
                 </div>
                 <div>
